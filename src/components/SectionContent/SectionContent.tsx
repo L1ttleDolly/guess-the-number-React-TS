@@ -1,15 +1,12 @@
 import Button from "../Button/Button.tsx";
 import SectionForm from "../Form/SectionForm.tsx";
 import {useState} from "react";
-
-export type TContentChildren = {
-    children: string | null;
-}
+import * as React from "react";
 
 export default function SectionContent() {
 
-    const [text, setText] = useState<string | null>(" ")
-    const [textResult, setTextResult] = useState<string | null>(" ")
+    const [text, setText] = useState<string | null>("")
+    const [textResult, setTextResult] = useState<React.ReactNode>(null)
 
     const [randomInt, setRandomInt] = useState(getRandomInt())
 
@@ -19,8 +16,8 @@ export default function SectionContent() {
 
     function restartGame(){
         setRandomInt(getRandomInt)
-        setText(" ")
-        setTextResult(" ")
+        setText("")
+        setTextResult("")
     }
 
     return (
@@ -29,7 +26,7 @@ export default function SectionContent() {
             <p className="content__result">{text}</p>
            <SectionForm setText={setText} setTextResult={setTextResult} randomNumber={randomInt} />
             <p className="content__answers">{textResult}</p>
-            <Button className={"button-restart"} onClick={restartGame}></Button>
+            <Button className={"button-restart button-transform"} onClick={restartGame}></Button>
         </section>
     )
 }

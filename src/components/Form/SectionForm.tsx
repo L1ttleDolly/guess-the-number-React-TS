@@ -1,60 +1,60 @@
 import Button from "../Button/Button.tsx";
-import { useState } from "react";
+import {type ChangeEvent, useEffect, useState} from "react";
 
 export type TTextResult = {
     setText : React.Dispatch<React.SetStateAction<string | null>>;
-    setTextResult: React.Dispatch<React.SetStateAction<string | null>>;
+    setTextResult: React.Dispatch<React.SetStateAction<React.ReactNode>>;
     randomNumber: number;
-
 }
 
 export default function SectionForm({ setText, setTextResult, randomNumber }: TTextResult) {
 
-    const [inputValue, setInputValue] = useState<string| null>(null)
-
-   /* const [randomInt, setRandomInt] = useState(getRandomInt())*/
-
-    const [hasError, setHasError] = useState('')
+    const [inputValue, setInputValue] = useState("")
 
     const [attempts, setAttempts] = useState(0)
 
+    const [hasError, setHasError] = useState(false)
+
     const maxAttempts = 5
 
+    useEffect(() => {
+        setInputValue("")
+        setHasError(false)
+        setAttempts(0)
+    }, [randomNumber])
 
-   /* function getRandomInt() {
-        return Math.floor(Math.random() * 100) + 1
-    }*/
+    const handleInputValue = (e: ChangeEvent<HTMLInputElement>) => {
+        setInputValue(e.target.value)
 
+        if(e.target.value.trim().length === 0) {
+            setHasError(true)
+        } else {
+            setHasError(false)
+        }
+    }
 
-    function isShowResult() {
+    const isShowResult = () => {
         setAttempts(prev => prev + 1)
 
-        console.log(randomNumber)
-
         if(!inputValue) return null
-
         const value = parseInt(inputValue)
 
         if(randomNumber === value) {
             setText("Вы выиграли")
-            setTextResult(" ")
+            setTextResult("")
         } else if (attempts === maxAttempts) {
             setText("Вы проиграли")
-            setTextResult(" ")
+            setTextResult("")
+            setHasError(true)
         } else if (randomNumber > value) {
             setText("Игра продолжается")
-            setTextResult('Число меньше загаданного')
+            setTextResult(<>Число <span style={{color: '#bd3c3c'}}>меньше</span> загадонного</>)
+
         } else if (randomNumber < value) {
             setText("Игра продолжается")
-            setTextResult('Число больше загаданного')
+            setTextResult(<>Число <span style={{color: '#63d26b'}}>больше</span> загадонного</>)
         }
     }
-
-  /*  function startNewGame() {
-        getRandomInt()
-        setText(" ")
-        setTextResult(" ")
-    }*/
 
     return (
         <form
@@ -67,13 +67,14 @@ export default function SectionForm({ setText, setTextResult, randomNumber }: TT
             name="form">
             <label className="field__label" htmlFor="field"> </label>
             <input
-                onChange={(e) => setInputValue(e.target.value)}
+                value={inputValue}
+                onChange={handleInputValue}
                 id="field"
                 type="number"
                 className="input"
                 placeholder="Введите число от 1 до 100"
             />
-            <Button className={"button-submit"}>Отправить</Button>
+            <Button className={"button-submit button-transform"} isValid={hasError}>Отправить</Button>
         </form>
     )
 }

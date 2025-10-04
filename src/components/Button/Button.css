@@ -1,14 +1,8 @@
-.button {
-    background-color: #f4f9fc;
-    transition-duration: 0.2s;
+.button-transform {
 
     &:active {
         transform: scale(0.9);
         transition: transform 0.2s ease;
-    }
-
-    &:hover {
-        background-color: #88c2ce;
     }
 }
 
@@ -27,9 +21,6 @@
         color: #f4f9fc;
         background-color: #88c2ce;
         outline: none;
-        transition:
-                color,
-                background-color 0.7s ease;
     }
 }
 
@@ -37,6 +28,11 @@
     border-radius: 0.6rem;
     width: 7rem;
     height: 1.8rem;
+    transition-duration: 0.2s;
+
+    &:hover {
+        background-color: #88c2ce;
+    }
 }
 
 .disabled {
