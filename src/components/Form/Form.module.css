@@ -1,0 +1,26 @@
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1.5rem;
+}
+
+.input {
+    background-color: #fff;
+    border-radius: 2rem;
+    text-align: center;
+    width: 17rem;
+    height: 1.8rem;
+
+
+    &:hover,
+    &:focus {
+        outline: 2px dashed #fff;
+        background-color: #a5e1ec;
+        transition:
+                outline,
+                background-color 0.5s ease;
+    }
+}
