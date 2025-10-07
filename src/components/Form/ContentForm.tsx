@@ -7,13 +7,15 @@ export type TTextResult = {
     randomNumber: number;
 }
 
-export default function SectionForm({ setText, setTextResult, randomNumber }: TTextResult) {
+export default function ContentForm({ setText, setTextResult, randomNumber }: TTextResult) {
 
     const [inputValue, setInputValue] = useState("")
 
     const [attempts, setAttempts] = useState(0)
 
     const [hasError, setHasError] = useState(false)
+
+    const [inputValid, setInputValid] = useState(false)
 
     const inputRef = useRef<HTMLInputElement>(null)
 
@@ -24,6 +26,7 @@ export default function SectionForm({ setText, setTextResult, randomNumber }: TT
         setHasError(false)
         setAttempts(0)
         inputRef.current?.focus()
+        setInputValid(false)
     }, [randomNumber])
 
     const handleInputValue = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +39,7 @@ export default function SectionForm({ setText, setTextResult, randomNumber }: TT
         }
     }
 
-    const isShowResult = () => {
+    const showResult = () => {
 
         const nextAttempts = attempts + 1
         setAttempts(nextAttempts)
@@ -51,6 +54,7 @@ export default function SectionForm({ setText, setTextResult, randomNumber }: TT
             setText("Вы проиграли")
             setTextResult("")
             setHasError(true)
+            setInputValid(true)
         } else if (randomNumber > value) {
             setText("Игра продолжается")
             setTextResult(<>Число <span style={{color: '#bd3c3c'}}>меньше</span> загадонного</>)
@@ -66,12 +70,14 @@ export default function SectionForm({ setText, setTextResult, randomNumber }: TT
             onSubmit={(event) =>
             {
                 event.preventDefault()
-                isShowResult()
+                showResult()
             }
         }
             name="form">
             <label className="field__label" htmlFor="field"> </label>
             <input
+                aria-label="Введите число от 1 до 100"
+                disabled={inputValid}
                 ref={inputRef}
                 value={inputValue}
                 onChange={handleInputValue}
