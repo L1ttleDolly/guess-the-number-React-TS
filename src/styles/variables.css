@@ -1,0 +1,25 @@
+:root {
+    --black-color-1: #000;
+    --white-color-1: #fff;
+
+    --red-color: #bd3c3c;
+    --green-color: #63d26b;
+
+    --page-main-color: #10100f;
+    --title-text-color: #d6dfe8;
+    --disabled-color:#acacac;
+
+    --decorated-color: #88c2ce;
+
+
+    --button-border-radius:  0.6rem;
+    --buton-transform: scale(0.9);
+
+    --input-border-radius: 50%;
+
+    --transition-duration: 0.2s;
+
+    --focus-visible-outline-page: 1px solid #88c2ce;
+    --focus-visible-outline-modal: 1px solid #fff;
+
+}

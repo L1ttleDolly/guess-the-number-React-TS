@@ -11,7 +11,7 @@
     color: #88c2ce;
     outline: 1px solid #f4f9fc;
     align-self: center;
-    transition-duration: 0.2s;
+    transition-duration: var(--transition-duration);
     width: 9rem;
     height: 1.8rem;
     border-radius: 0.6rem;
@@ -24,7 +24,7 @@
     }
 
     &:focus-visible {
-        outline: 1px solid #88c2ce;
+        outline: var(--focus-visible-outline-page);
     }
 }
 
@@ -32,14 +32,14 @@
     border-radius: 0.6rem;
     width: 7rem;
     height: 1.8rem;
-    transition-duration: 0.2s;
+    transition-duration: var(--transition-duration);
 
     &:hover {
-        background-color: #88c2ce;
+        background-color: var(--decorated-color);
     }
 
     &:focus-visible {
-        outline: 1px solid #88c2ce;
+        outline: var(--focus-visible-outline-page);
     }
 }
 
@@ -47,7 +47,7 @@
     &:disabled {
         cursor: not-allowed;
         pointer-events: none;
-        background-color: #acacac;
+        background-color: var(--disabled-color);
     }
 }
 
@@ -62,7 +62,7 @@
     background-position: center;
 
     &:focus-visible {
-        outline: 1px solid #88c2ce;
+        outline: var(--focus-visible-outline-page);
     }
 }
 

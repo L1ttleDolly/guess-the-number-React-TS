@@ -6,9 +6,10 @@ export type TModal = {
     children: React.ReactNode;
     open: boolean;
     onClose?: () => void
+    className?: string | undefined;
 }
 
-export default function Modal({children, open, onClose}: TModal) {
+export default function Modal({children, open, onClose, className}: TModal) {
     const dialog = useRef<HTMLDialogElement>(null)
 
     const container = document.getElementById('modal')
@@ -27,7 +28,7 @@ export default function Modal({children, open, onClose}: TModal) {
             ref={dialog}
             open={open}
             aria-label="Правила игры"
-            className="modal"
+            className={className}
         >
             {children}
         </dialog>,

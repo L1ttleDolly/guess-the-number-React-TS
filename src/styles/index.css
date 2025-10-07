@@ -1,0 +1,16 @@
+@import "src/styles/global.css";
+@import "src/styles/normalize.css";
+@import "../components/AsideMenu/Aside.css";
+@import "../components/Button/Button.css";
+@import "../components/Form/Form.module.css";
+@import "../components/Header/Header.module.css";
+@import "../components/Modal/Modal.module.css";
+@import "../components/SectionContent/SectionContent.module.css";
+@import "variables.css";
+
+body {
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  background-color: var(--page-main-color);
+}

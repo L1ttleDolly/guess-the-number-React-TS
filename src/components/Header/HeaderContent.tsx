@@ -7,6 +7,7 @@ export default function HeaderContent() {
 
     return (
         <>
+
             <h1 className="header__title">{'Угадай число'}</h1>
            <Button
                onClick={() => setIsModalOpen(true)}
@@ -14,6 +15,7 @@ export default function HeaderContent() {
            >
                {"Правила игры"}</Button>
             <Modal
+                className="headerModal"
                 open={isModalOpen}
                 onClose={(() => setIsModalOpen(false))}
             >
