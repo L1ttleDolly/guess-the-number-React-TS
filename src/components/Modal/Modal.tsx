@@ -5,7 +5,7 @@ import { useRef } from "react";
 export type TModal = {
     children: React.ReactNode;
     open: boolean;
-    onClose: () => void
+    onClose?: () => void
 }
 
 export default function Modal({children, open, onClose}: TModal) {

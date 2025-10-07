@@ -1,6 +1,6 @@
 export type TButtonText = {
     children?: React.ReactNode;
-    className: string | undefined;
+    className?: string | undefined;
     onClick?: () => void;
     isValid?: boolean
 }

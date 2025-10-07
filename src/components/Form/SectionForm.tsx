@@ -1,5 +1,5 @@
 import Button from "../Button/Button.tsx";
-import {type ChangeEvent, useEffect, useState} from "react";
+import {type ChangeEvent, useEffect, useRef, useState} from "react";
 
 export type TTextResult = {
     setText : React.Dispatch<React.SetStateAction<string | null>>;
@@ -15,6 +15,8 @@ export default function SectionForm({ setText, setTextResult, randomNumber }: TT
 
     const [hasError, setHasError] = useState(false)
 
+    const inputRef = useRef<HTMLInputElement>(null)
+
     const maxAttempts = 5
 
     useEffect(() => {
@@ -22,6 +24,10 @@ export default function SectionForm({ setText, setTextResult, randomNumber }: TT
         setHasError(false)
         setAttempts(0)
     }, [randomNumber])
+
+    useEffect(() => {
+        inputRef.current?.focus()
+    }, [])
 
     const handleInputValue = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value)
@@ -67,6 +73,7 @@ export default function SectionForm({ setText, setTextResult, randomNumber }: TT
             name="form">
             <label className="field__label" htmlFor="field"> </label>
             <input
+                ref={inputRef}
                 value={inputValue}
                 onChange={handleInputValue}
                 id="field"

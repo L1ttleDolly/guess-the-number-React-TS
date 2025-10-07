@@ -22,6 +22,10 @@
         background-color: #88c2ce;
         outline: none;
     }
+
+    &:focus-visible {
+        outline: 1px solid #88c2ce;
+    }
 }
 
 .button-submit {
@@ -32,6 +36,10 @@
 
     &:hover {
         background-color: #88c2ce;
+    }
+
+    &:focus-visible {
+        outline: 1px solid #88c2ce;
     }
 }
 
@@ -52,6 +60,10 @@
     background-image: url("/restart.svg");
     background-size: 100%;
     background-position: center;
+
+    &:focus-visible {
+        outline: 1px solid #88c2ce;
+    }
 }
 
 .modal__button-close {
@@ -61,5 +73,9 @@
 
     &:hover {
         background-color: #d6dfe8;
+    }
+
+    &:focus-visible {
+        outline: 1px solid #fff;
     }
 }
