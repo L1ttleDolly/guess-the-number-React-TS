@@ -23,11 +23,8 @@ export default function SectionForm({ setText, setTextResult, randomNumber }: TT
         setInputValue("")
         setHasError(false)
         setAttempts(0)
-    }, [randomNumber])
-
-    useEffect(() => {
         inputRef.current?.focus()
-    }, [])
+    }, [randomNumber])
 
     const handleInputValue = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value)
@@ -40,7 +37,9 @@ export default function SectionForm({ setText, setTextResult, randomNumber }: TT
     }
 
     const isShowResult = () => {
-        setAttempts(prev => prev + 1)
+
+        const nextAttempts = attempts + 1
+        setAttempts(nextAttempts)
 
         if(!inputValue) return null
         const value = parseInt(inputValue)
@@ -48,7 +47,7 @@ export default function SectionForm({ setText, setTextResult, randomNumber }: TT
         if(randomNumber === value) {
             setText("Вы выиграли")
             setTextResult("")
-        } else if (attempts === maxAttempts) {
+        } else if (nextAttempts  >= maxAttempts) {
             setText("Вы проиграли")
             setTextResult("")
             setHasError(true)
