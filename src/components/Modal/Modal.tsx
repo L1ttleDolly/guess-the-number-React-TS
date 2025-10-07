@@ -5,9 +5,10 @@ import { useRef } from "react";
 export type TModal = {
     children: React.ReactNode;
     open: boolean;
+    onClose: () => void
 }
 
-export default function Modal({children, open}: TModal) {
+export default function Modal({children, open, onClose}: TModal) {
     const dialog = useRef<HTMLDialogElement>(null)
 
     const container = document.getElementById('modal')
@@ -22,6 +23,7 @@ export default function Modal({children, open}: TModal) {
 
     return createPortal(
         <dialog
+            onClose={(() => onClose?.())}
             ref={dialog}
             open={open}
             aria-label="Правила игры"

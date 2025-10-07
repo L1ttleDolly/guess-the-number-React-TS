@@ -13,7 +13,10 @@ export default function HeaderContent() {
                className={"button-rules button-transform"}
            >
                {"Правила игры"}</Button>
-            <Modal open={isModalOpen}>
+            <Modal
+                open={isModalOpen}
+                onClose={(() => setIsModalOpen(false))}
+            >
                         <h2>Правила игры</h2>
                         <ul>
                             <li>1. Загадывается число от 1 до 100</li>
