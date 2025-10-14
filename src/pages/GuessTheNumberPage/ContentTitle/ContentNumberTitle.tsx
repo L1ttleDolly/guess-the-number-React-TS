@@ -1,8 +1,8 @@
-import Button from "../Button/Button.tsx";
-import Modal from "../Modal/Modal.tsx";
 import {useState} from "react";
+import Button from "../../../components/Button/Button.tsx";
+import Modal from "../../../components/Modal/Modal.tsx";
 
-export default function HeaderContent() {
+export default function ContentNumberTitle() {
    const [isModalOpen, setIsModalOpen] = useState(false)
 
     return (

@@ -1,11 +1,16 @@
-@import "HeaderContent.module.css";
-
-.header__container {
+.header {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    gap: 0.3rem;
-    width: 100%;
-    margin-bottom: 10rem;
+    flex-direction: row;
+    gap: 2.3rem;
+    padding: 1rem;
+    background: -webkit-linear-gradient(0deg, rgb(17, 17, 17), rgb(45, 45, 45), rgb(22, 22, 22));
+    background: -moz-linear-gradient(0deg, rgb(17, 17, 17), rgb(45, 45, 45), rgb(22, 22, 22));
+    background: linear-gradient(0deg, rgb(17, 17, 17), rgb(45, 45, 45), rgb(22, 22, 22));
+    border-top: 1px solid #000 ;
+    border-bottom: 1px solid #000 ;
 }
 
+.header__link {
+    color: var(--white-color-1);
+}

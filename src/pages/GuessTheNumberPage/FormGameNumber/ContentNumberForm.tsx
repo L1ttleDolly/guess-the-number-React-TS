@@ -1,5 +1,5 @@
-import Button from "../Button/Button.tsx";
 import {type ChangeEvent, useEffect, useRef, useState} from "react";
+import Button from "../../../components/Button/Button.tsx";
 
 export type TTextResult = {
     setText : React.Dispatch<React.SetStateAction<string | null>>;
@@ -7,7 +7,7 @@ export type TTextResult = {
     randomNumber: number;
 }
 
-export default function ContentForm({ setText, setTextResult, randomNumber }: TTextResult) {
+export default function ContentNumberForm({ setText, setTextResult, randomNumber }: TTextResult) {
 
     const [inputValue, setInputValue] = useState("")
 

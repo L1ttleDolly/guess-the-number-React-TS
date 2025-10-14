@@ -1,11 +1,13 @@
 @import "src/styles/global.css";
-@import "src/styles/normalize.css";
-@import "../components/AsideMenu/Aside.css";
 @import "../components/Button/Button.css";
-@import "../components/Form/Form.module.css";
 @import "../components/Header/Header.module.css";
+@import "src/pages/AboutPage/AboutPage.module.css";
+@import "../pages/GuessTheNumberPage/FormGameNumber/Form.module.css";
+@import "../pages/GuessTheNumberPage/ContentTitle/Header.module.css";
 @import "../components/Modal/Modal.module.css";
-@import "../components/SectionContent/SectionContent.module.css";
+@import "../pages/HomePage/HomePage.css";
+@import "../pages/GuessTheNumberPage/SectionGameNumberContent.module.css";
+@import "../pages/TwoChairsPage/TwoChairs.module.css";
 @import "variables.css";
 
 body {

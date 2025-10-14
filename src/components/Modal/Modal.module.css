@@ -10,7 +10,7 @@ dialog[open] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 0.4rem;
+    justify-content: space-between;
 }
 
 .modal-close {

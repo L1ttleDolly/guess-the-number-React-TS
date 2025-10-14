@@ -1,13 +1,14 @@
-import HeaderContent from "./HeaderContent.tsx";
-import AsideMenu from "../AsideMenu/AsideMenu.tsx";
 
+import type {ReactNode} from "react";
 
-export default function Header() {
+export type THeaderChildren = {
+    children: ReactNode
+}
+
+export default function Header({children}:THeaderChildren) {
     return (
-        <header className="header__container">
-            <AsideMenu />
-            <HeaderContent />
-
+        <header className="header">
+            {children}
         </header>
     )
 }
