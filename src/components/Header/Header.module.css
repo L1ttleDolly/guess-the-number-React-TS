@@ -12,5 +12,13 @@
 }
 
 .header__link {
-    color: var(--white-color-1);
+    color: var(--title-text-color);
+
+    &:hover {
+        color: var(--white-color-1);
+    }
+}
+
+.active {
+    color: var(--decorated-color);
 }
