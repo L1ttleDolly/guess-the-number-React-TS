@@ -7,7 +7,7 @@ export default function TwoChairsPage() {
                 <p className="subTitle">
                     Пока держите котика :3
                 </p>
-            <img src="/cats.gif"  className="decor" alt="анимация спящий котик"/>
+                    <div className="decor-cat"></div>
 
 
         </div>

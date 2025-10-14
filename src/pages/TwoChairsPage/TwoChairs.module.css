@@ -15,7 +15,8 @@
 
 }
 
-.decor {
-    width: 10%;
-    height: 10%;
+.decor-cat {
+    background-image: url("/cats.gif");
+    width: 100px;
+    height: 100px;
 }

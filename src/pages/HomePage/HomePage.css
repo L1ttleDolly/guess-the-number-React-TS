@@ -10,3 +10,9 @@
 .home__page-title {
 color: var(--white-color-1);
 }
+
+.decor-pepe {
+    background-image: url("/pepe_shiny.gif");
+    width: 100px;
+    height: 100px;
+}
