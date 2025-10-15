@@ -28,3 +28,4 @@ https://guess-the-number-react-ts.vercel.app/
 ⠀⠠⠊⠀⠀⠀⠀⠙⠂⣴⠒⠒⣲⢔⠉⠉⣹⣞⣉⣈⠿⢦⣀⣀⣀⣠⡴⠟
 
 
+\\
