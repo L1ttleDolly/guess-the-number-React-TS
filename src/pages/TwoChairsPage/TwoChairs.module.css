@@ -1,14 +1,42 @@
 .container {
     display: flex;
-    flex-direction: column;
+    gap: 4rem;
     justify-content: center;
     align-items: center;
-    margin-top: 10rem;
+    margin-top: 7rem;
     color: white;
 }
 
 .title {
       margin-bottom: 1rem;
+}
+
+.chair {
+    width: 9rem;
+    height: 2.2rem;
+    border-radius: var(--button-border-radius);
+}
+
+.chairs-container {
+    display: flex;
+    gap: 5rem;
+}
+
+.button-start {
+    width: 9rem;
+    height: 2.2rem;
+    border-radius: var(--button-border-radius);
+}
+
+.questions-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--decorated-color);
+    border-radius: 8%;
+    width: 30rem;
+    height: 16rem;
 }
 
 .subtitle {
@@ -20,3 +48,4 @@
     width: 100px;
     height: 100px;
 }
+
