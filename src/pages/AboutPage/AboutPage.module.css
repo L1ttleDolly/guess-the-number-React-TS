@@ -3,12 +3,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10rem;
-    color: white;
+
+
+
 }
 
 .title {
-    margin-bottom: 1rem;
+    margin-top: 6rem;
+    color: var(--white-color-1);
 }
 
 

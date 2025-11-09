@@ -1,25 +1,20 @@
-.container {
-    display: flex;
+.container-game-chairs {
     gap: 4rem;
-    justify-content: center;
-    align-items: center;
     margin-top: 7rem;
     color: white;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto) ;
+    justify-content:  center;
+    justify-items: center;
 }
 
-.title {
-      margin-bottom: 1rem;
-}
 
-.chair {
-    width: 9rem;
-    height: 2.2rem;
-    border-radius: var(--button-border-radius);
-}
 
-.chairs-container {
-    display: flex;
-    gap: 5rem;
+.container-start {
+    grid-column: span 3 ;
+
+
 }
 
 .button-start {
@@ -28,24 +23,61 @@
     border-radius: var(--button-border-radius);
 }
 
+
+
 .questions-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background-color: var(--decorated-color);
-    border-radius: 8%;
+    border: 2px  var(--decorated-color) solid;
+    border-radius: 2%;
     width: 30rem;
-    height: 16rem;
+    height: 9rem;
+    overflow-y: auto;
 }
 
-.subtitle {
+.questions-text {
+    text-align:  center;
+}
+
+.stat1 {
+width: 1rem;
+}
+
+.stat2 {
+width: 1rem;
+}
+
+.chairs-container {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: span 3;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: auto;
+}
+
+.button {
+    width: 9rem;
+    height: 2.2rem;
+    border-radius: var(--button-border-radius);
+}
+
+.card-subtitle {
+    /*background-color: #63d26b;*/
+    text-align: center;
+    width: 12rem;
+    height: 5rem;
+    overflow-y: auto;
 
 }
 
-.decor-cat {
-    background-image: url("/cats.gif");
-    width: 100px;
-    height: 100px;
-}
 

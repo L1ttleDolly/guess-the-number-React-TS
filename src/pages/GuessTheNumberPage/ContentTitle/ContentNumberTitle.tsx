@@ -8,7 +8,7 @@ export default function ContentNumberTitle() {
     return (
         <>
 
-            <h1 className="header__title">{'Угадай число'}</h1>
+            {/*<h1 className="header__title">{'Угадай число'}</h1>*/}
            <Button
                onClick={() => setIsModalOpen(true)}
                className={"button-rules button-transform"}
@@ -19,7 +19,7 @@ export default function ContentNumberTitle() {
                 open={isModalOpen}
                 onClose={(() => setIsModalOpen(false))}
             >
-                        <h2>Правила игры</h2>
+                        <h2>Угадай число</h2>
                         <ul>
                             <li>1. Загадывается число от 1 до 100</li>
                             <li>2. У вас есть 5 попыток, чтобы его угадать</li>

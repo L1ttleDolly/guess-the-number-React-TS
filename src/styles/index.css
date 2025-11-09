@@ -1,7 +1,8 @@
-@import "src/styles/global.css";
+@import "global.css";
 @import "../components/Button/Button.css";
 @import "../components/Header/Header.module.css";
-@import "src/pages/AboutPage/AboutPage.module.css";
+/*@import "src/pages/AboutPage/AboutPage.module.css";*/
+@import "../pages/AboutPage/AboutPage.module.css";
 @import "../pages/GuessTheNumberPage/FormGameNumber/Form.module.css";
 @import "../pages/GuessTheNumberPage/ContentTitle/Header.module.css";
 @import "../components/Modal/Modal.module.css";

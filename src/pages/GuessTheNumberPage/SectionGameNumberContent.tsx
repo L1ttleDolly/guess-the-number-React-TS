@@ -25,11 +25,14 @@ export default function SectionGameNumberContent() {
         <>
             <section className="content">
                 <ContentNumberContainer />
-                <h2 className="content__title">Результат:</h2>
-                <p className="content__result">{text}</p>
-                <ContentNumberForm setText={setText} setTextResult={setTextResult} randomNumber={randomInt} />
-                <p className="content__answers">{textResult}</p>
-                <Button className={"button-restart button-transform"} onClick={restartGame}></Button>
+                <div className="content__container">
+                    <h2 className="content__title">Результат:</h2>
+                    <p className="content__result">{text}</p>
+                    <ContentNumberForm setText={setText} setTextResult={setTextResult} randomNumber={randomInt} />
+                    <p className="content__answers">{textResult}</p>
+                    <Button className={"button-restart button-transform"} onClick={restartGame}></Button>
+                </div>
+
             </section>
         </>
 
