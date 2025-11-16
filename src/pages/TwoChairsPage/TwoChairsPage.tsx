@@ -1,76 +1,87 @@
-import Button from "../../components/Button/Button.tsx";
-import {useState} from "react";
-import {Article} from "../../components/Article/Article.tsx";
-import {cardData} from "../../data/cards/cards.ts";
+import Button from '../../components/Button/Button.tsx';
+import { useState } from 'react';
+import { Article } from '../../components/Article/Article.tsx';
+import { cardData } from '../../data/cards/cards.ts';
 
 export default function TwoChairsPage() {
-    const cards = cardData.cardsQuestions
+  const cards = cardData.cardsQuestions;
 
-    const [whiteStat, setWhiteStat] = useState('')
-    const [dartStat, setDartStat] = useState('')
+  const [whiteStat, setWhiteStat] = useState(0);
+  const [dartStat, setDartStat] = useState(0);
 
-    const [currentId, setCurrentId] = useState('')
+  const [currentId, setCurrentId] = useState(0);
 
-    const card = cards.find(c => c.id === currentId) // first render undefined
+  const [btnValid, setBtnValid] = useState(false);
 
-    const showChairOne = () => {
-        console.log('Не нажимай на меня')
-        setDartStat('+1')
+  const card = cards.find((c) => c.id === currentId);
+  /*  console.log('текущий айди ', currentId);*/
+
+  const getNextCard = () => {
+    const currentIndex = cards.findIndex((c) => c.id === card?.id);
+    const nextCard = (currentIndex + 1) % cards.length;
+    setCurrentId(cards[nextCard].id);
+  };
+
+  /*const finishGame = () => {
+    console.log('cards id', cards.at(-1)?.id);
+    console.log('текущий айди в функции финиш', currentId);
+    if (cards.at(-1)?.id === currentId) {
+      /!* setBtnValid(true);*!/
     }
+  };*/
 
-    const showChairTwo = () => {
-        console.log('Второй стул')
-        setWhiteStat('+1')
-    }
+  const incrementStat = () => {
+    setWhiteStat((prevState) => prevState + 1);
+    getNextCard();
+  };
 
-    const startGame = () => {
-        const currentIndex = cards.findIndex(c => c.id === card?.id)
-        const nextCard = (currentIndex + 1) % cards.length
-        setCurrentId(cards[nextCard].id)
-    }
+  const decrementStat = () => {
+    setDartStat((prevState) => prevState - 1);
+    getNextCard();
+  };
 
-    return (
-        <>
-            <section className="container-game-chairs">
-                <div className="container-start">
-                    <Button
-                        onClick={startGame}
-                        className="button-start"
-                    >
-                        Начать
-                    </Button>
-                </div>
-                <div className="stat1">{dartStat}</div>
-                <div className="questions-container">
-                   {/* <h2 className="questions-title"> Ситуация:</h2>*/}
-                    <p className="questions-text">{card?.title}</p>
-                    <p className="questions-subtitle">Твой выбор?</p>
-                </div>
-                <div className="stat2">{whiteStat}</div>
-                <div className="chairs-container">
-                    <Article className="card-container">
-                        <Button
-                            onClick={showChairOne}
-                            className="button"
-                        >
-                            Первый стул
-                        </Button>
-                        <p className="card-subtitle">{card?.cardsAnswers.firstAnswer}</p>
-                    </Article>
+  /*
+  finishGame();
+*/
 
-                    <Article className="card-container">
-                        <Button
-                            onClick={showChairTwo}
-                            className="button"
-                        >
-                            Второй стул
-                        </Button>
-                        <p className="card-subtitle">{card?.cardsAnswers.secondAnswer}</p>
-                    </Article>
-                </div>
+  return (
+    <>
+      <section className='container-game-chairs'>
+        <div className='container-start'></div>
+        <div className='stat1'>{dartStat}</div>
+        <div className='questions-container'>
+          <p className='questions-text'>{card?.title}</p>
+          <p className='questions-subtitle'>
+            {card?.title === undefined
+              ? `Выбери стул, чтобы начать`
+              : `Твой выбор?`}
+          </p>
+        </div>
+        <div className='stat2'>{whiteStat}</div>
+        <div className='chairs-container'>
+          <Article className='card-container'>
+            <Button
+              onClick={decrementStat}
+              className='button'
+              isValid={btnValid}
+            >
+              Первый стул
+            </Button>
+            <p className='card-subtitle'>{card?.cardsAnswers.firstAnswer}</p>
+          </Article>
 
-            </section>
-
-        </>
-    )
+          <Article className='card-container'>
+            <Button
+              onClick={incrementStat}
+              className='button'
+              isValid={btnValid}
+            >
+              Второй стул
+            </Button>
+            <p className='card-subtitle'>{card?.cardsAnswers.secondAnswer}</p>
+          </Article>
+        </div>
+      </section>
+    </>
+  );
 }
